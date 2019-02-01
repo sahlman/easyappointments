@@ -225,10 +225,20 @@ window.FrontendBook = window.FrontendBook || {};
                     }
                 });
             });
-
             // Add the "Any Provider" entry.
             if ($('#select-provider option').length >= 2) {
                 $('#select-provider').append(new Option('- ' + EALang.any_provider + ' -', 'any-provider'));
+                $('#select-provider-form-group').show();
+            } else {
+              console.log(GlobalVariables.availableProviders);
+              console.log(GlobalVariables.availableProviders[0].id);
+              $('#select-provider-wrapper').empty();
+              $('<input>').attr({
+                  type: 'hidden',
+                  id: 'select-provider',
+                  name: 'select-provider',
+                  value: GlobalVariables.availableProviders[0].id,
+              }).appendTo('#select-provider-wrapper');
             }
 
             FrontendBookApi.getUnavailableDates($('#select-provider').val(), $(this).val(),

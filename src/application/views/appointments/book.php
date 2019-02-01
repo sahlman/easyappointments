@@ -93,6 +93,8 @@
                                     <strong><?= lang('select_service') ?></strong>
                                 </label>
 
+
+
                                 <select id="select-service" class="col-xs-12 col-sm-4 form-control">
                                     <?php
                                         // Group services by category, only if there is at least one service with a parent category.
@@ -146,14 +148,16 @@
                                         }
                                     ?>
                                 </select>
+
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" id="select-provider-form-group" style="visibility: hidden">
                                 <label for="select-provider">
                                     <strong><?= lang('select_provider') ?></strong>
                                 </label>
-
-                                <select id="select-provider" class="col-xs-12 col-sm-4 form-control"></select>
+                                <div id="select-provider-wrapper">
+                                  <select id="select-provider" class="col-xs-12 col-sm-4 form-control"></select>
+                                </div>
                             </div>
 
                             <div id="service-description" style="display:none;"></div>
@@ -178,6 +182,7 @@
 
                         <div class="frame-content row">
                             <div class="col-xs-12 col-sm-6">
+
                                 <div id="select-date"></div>
                             </div>
 
